@@ -59,10 +59,45 @@ initQuickAction();
       appBar: AppBar(
         title: Text(shortcut),
       ),
-      body: const Center(
-        child: Text(' long press the app icon to '
-            'get Action one or Action two options. Tapping on that action should  '
-            'set the toolbar title.'),
+      body: _IntrinsicWidthDemo()
+    );
+  }
+}
+
+
+
+
+class _IntrinsicWidthDemo extends StatelessWidget {
+
+  final Widget data = Column(
+    crossAxisAlignment: CrossAxisAlignment.stretch,
+    children: [
+      Container(
+        width: 400,
+        height: 50,
+        color: Colors.cyan,
+      ),
+      Expanded(
+        child: Container(
+          width: 100,
+          height: 50,
+          color: Colors.orange,
+        ),
+      ),
+    ],
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.teal,
+        title: Text('Flutter IntrinsicWidth Demo'),
+      ),
+      body: IntrinsicWidth(
+        stepWidth: 300,
+        stepHeight: 300,
+        child: data,
       ),
     );
   }
